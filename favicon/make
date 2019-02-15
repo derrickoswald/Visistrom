@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -ex
+
+svg=$1
+
+size=(16 32 24 48 72 96)
+
+echo Making bitmaps from your svg...
+
+for i in ${size[@]}; do
+  ~/code/inkscape/inst/bin/inkscape $svg --export-file="favicon-$i.png" --export-type="png" --export-width=$i --export-height=$i --without-gui
+done
+
+echo Converting to favicon.ico...
+
+convert $(ls -v favicon-*.png) favicon.ico
+
+mv favicon.ico ..
+rm favicon-*.png
+
+echo Done
