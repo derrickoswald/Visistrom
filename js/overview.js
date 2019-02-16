@@ -70,6 +70,40 @@ define
                 document.getElementById ("light-bulb-icon").src = icon;
             }
 
+            function normalize ()
+            {
+                // normalize the data
+                var sum = 0.0
+                var count = 0;
+                for (var property in TheData)
+                    if (TheData.hasOwnProperty (property))
+                    {
+                        var x = TheData[property].power;
+                        sum += x;
+                        count++;
+                    }
+                var average = sum / count;
+
+                var refsum = 0.0;
+                var refcount = 0;
+                for (var property in TheReference)
+                    if (TheReference.hasOwnProperty (property))
+                    {
+                        var x = Number(TheReference[property].power);
+                        refsum += x;
+                        refcount++;
+                    }
+                var refaverage = refsum / refcount;
+
+                var scale = average / refaverage;
+                for (var property in TheReference)
+                    if (TheReference.hasOwnProperty (property))
+                    {
+                        var x = TheReference[property].power;
+                        TheReference[property].power = x * scale;
+                    }
+            }
+
             function initialize ()
             {
                 function convert (objects)
@@ -77,10 +111,16 @@ define
                     var new_objects = {};
                     for (var property in objects)
                         if (objects.hasOwnProperty (property))
-                            new_objects[new Date (property)] = objects[property];
+                        {
+                            var data = objects[property]
+                            var average = Number(data.average);
+                            var power = Number(data.power);
+                            if (!isNaN (average) && !isNaN (power))
+                                new_objects[new Date (property)] = { average: average, power: power };
+                        }
+
                     return (new_objects);
                 }
-                read_data.load ("data/4weeks_MD_T1_MHF1.csv").then (function (objects) { TheData = convert (objects); } );
 
                 /**
                  * Pad a string on the left to width with padding.
@@ -104,16 +144,28 @@ define
                                 var v = u[2] + "-" + pad (2, u[0], "0") + "-" + pad (2, u[1], "0");
                                 var w = v + " " + pad (2, t[0], "0") + ":" + t[1] + ":00";
                                 var date = new Date (w);
-                                new_objects[date] = objects[property];
+                                var data = objects[property]
+                                var power = Number(data["Verbrauch Kanton AG (kWh)"]);
+                                if (!isNaN (power))
+                                    new_objects[date] = { power: power };
                             }
                         }
                     return (new_objects);
                 }
-
-                read_data.load ("data/Canton_Argau_Consumption_2018.csv", ";").then (function (objects) { TheReference = clean (objects); } );
-
-                // ToDo: normalize the data
-
+                read_data.load ("data/4weeks_MD_T1_MHF1.csv").then (
+                    function (objects)
+                    {
+                        TheData = convert (objects);
+                        read_data.load ("data/Canton_Argau_Consumption_2018.csv", ";").then (
+                            function (objects)
+                            {
+                                TheReference = clean (objects);
+                                normalize ();
+                                console.log ("data loaded");
+                            }
+                        );
+                    }
+                );
             }
 
             function doit ()
