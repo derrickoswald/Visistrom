@@ -17,6 +17,7 @@ Minimize the necessity to buy expensive, "dirty" electricity (produced from oil 
 For this project, we used different sets of available data (open data).
 - [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
 - [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)
+
 [ ] todo: add all the data being used / calculated
 
 # Functionality
@@ -33,8 +34,8 @@ On the second half of the Home Screen are other options the user can choose. The
 - My Realm
 - My Club
 - My History
-- Acquisitions
-- Options
+- Compare Appliances
+- What can I do
 
 ## Lightbulb Forecast Screen
 The Lightbulb Forecast shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. A click on one of the lightbulbs gives the user the option to set a reminder (e.g. for vacuum cleaning, not yet implemented).
