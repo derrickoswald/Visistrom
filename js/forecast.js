@@ -7,7 +7,15 @@ define
     ["mustache"],
     function (mustache)
     {
-        function render ()
+        /**
+         * Pad a string on the left to width with padding.
+         */
+        function pad (width, string, padding)
+        {
+            return ((width <= string.length) ? string : pad (width, padding + string, padding));
+        }
+
+        function render (data, reference)
         {
             var template = `
                 <div class="row">
@@ -27,42 +35,29 @@ define
                     </div>
                 </div>
             `;
-            var list = { days: [
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-off.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
-                ] }
+
+            var days = [];
+            var count = 0;
+            for (var property in data)
+                if (reference.hasOwnProperty (property))
+                {
+                    var date = new Date (property);
+                    var time = "" + pad (2, "" + date.getHours (), "0") + ":" + pad (2, "" + date.getMinutes (), "0");
+                    var diff = reference[property].power - data[property].power;
+                    var item;
+                    if (diff > 0.2)
+                        item = { "time": time, "icon": "images/light-bulb-on.svg" };
+                    else if (diff < -0.2)
+                        item = { "time": time, "icon": "images/light-bulb-off.svg" };
+                    else
+                        item = { "time": time, "icon": "images/light-bulb-on-half.svg" };
+                    days.push (item);
+                    count++;
+                    if (count > 30)
+                        break;
+                }
+
+            var list = { days: days }
             var html = mustache.render (template, list);
             document.getElementById ("main").innerHTML = html;
         }

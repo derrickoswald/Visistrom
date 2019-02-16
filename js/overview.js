@@ -170,7 +170,7 @@ define
 
             function doit ()
             {
-                forecast.render ();
+                forecast.render (TheData, TheReference);
             };
 
             // initialize widgets
