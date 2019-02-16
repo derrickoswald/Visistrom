@@ -7,4 +7,14 @@ IMG.center_main {
 UL.forecast {
    border: medium solid black;
    list-style-type: none;
+   border-radius: 25px;
+   overflow-y: scroll;
+   height: 600px;
+}
+
+UL.forecast IMG {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 2px;
+	margin: 10px 0;
 }
