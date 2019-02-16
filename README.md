@@ -49,8 +49,8 @@ Similar to the My Realm Screen, the My Club Screen shows a simplified overview o
 ## My History Screen (not yet implemented, coming soon)
 The My History Screen provides a filter mechanism to specify a period of interest. As an example, the user can select from last day, last week, specific week, last month, specific month, last season, specific season, last year and custom from/to dates. The specified period is then being displayed as a graph whereas the scaling is determined by the period itself. Additionally, the user can add a second period of the same kind in order to start comparing time series. As an example, the user could compare the last week with the same week a year ago.
 
-## Acquisition Screen (not yet implemented, coming soon)
-The Acquisition Screen is meant to support the user in acquisition decisions. It focuses on the operational costs based on electricity consumption of the specified appliances. In the first version, the user can input 5 values into the form:
+## Compare Appliances Screen (not yet implemented, coming soon)
+The Compare Appliances Screen is meant to support the user in acquisition decisions. It focuses on the operational costs based on electricity consumption of the specified appliances. In the first version, the user can input 5 values into the form:
 - electricity consumption when turned on in Watt
 - hours of operation per year in hours
 - electricity consumption when in stand by in Watt
@@ -61,8 +61,8 @@ After putting the values in, the estimated electricity costs of that appliance i
 
 Additionally, a list of typical values is being shown, as for example the number of hours a tv es being operated in general (as a rule of thumb).
 
-## Options Screen (not yet implemented, coming soon)
-In the first versions of the Options Screen, a list of typical electrical appliances will be shown. The list should help the user to decide which devices can be turned on or turned off, depending on the current situation. In later versions, these options can be improved by
+## What can I do Screen (not yet implemented, coming soon)
+In the first versions of the What can I do Screen, a list of typical electrical appliances will be shown. The list should help the user to decide which devices can be turned on or turned off, depending on the current situation. In later versions, these options can be improved by
 - showing only appliances the user actually has
 - highlighting appliances that can actually be turned on or turned off (e.g. not showing a boiler that is already beeing running)
 - sorting the list in a smart way (taking the power consumption, ramp up time, saving potential, etc. into account)
