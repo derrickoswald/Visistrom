@@ -24,9 +24,10 @@ The Home Screen is split in half. In the upper part, an icon is shown as a quick
 A click on the icon will show the user a forecast of the lightbulb so he or she can plan their energy consumption ahead.
 
 On the second half of the Home Screen are other options the user can choose. These are
-- Forecast
-- Club
-- History
+- My Realm
+- My Club
+- My History
+- Acquisitions
 - Options
 
 ## Lightbulb Forecast Screen
