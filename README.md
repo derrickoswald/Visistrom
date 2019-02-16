@@ -45,7 +45,7 @@ The user will be able to click on the case of the table to access to more detail
 - saturation of Club
 - etc.
 
-To see their progression over time, consumers will have access to the profile curve of their past days, weeks and month consumptions. They will also be able to see the difference between their actual daily of specific weekday consumption with average of past consumption for the same weekday.
+To see their progression over time, consumers will have access to the profile curve of their past days, weeks and months consumptions. They will also be able to see the difference between their actual daily consumption of a specific weekday with average of past consumption for the same weekday.
 
 
 ### Home Screen
