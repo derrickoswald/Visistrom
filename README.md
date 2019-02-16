@@ -28,7 +28,6 @@ Minimize the necessity to buy expensive, "dirty" electricity (produced from oil 
 ## Data Analytics
 To make a recommendation of when to use electricity or not, we need to try to avoid peaks in consumption, at the individual household level, and at the area level. 
 
-*TO EDIT: What did we use this data for? [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)*
 
 ### 1. Consumption for a given household
 Predict consumption peaks and valleys for a given time based on the household's past consumption:
@@ -61,39 +60,41 @@ Predict consumption peaks and valleys for a given time based on the area's past 
 
 **Data source:**
 - [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3) (summed up)
-- Or: load profiles from Trafo stations (not openly available)
+- Or alternatively: load profiles from Trafo stations (not openly available)
 
 
 
-
-### 4. Solar panel production for a given household (TO DO)
+### 4. Solar panel production for a given household
 Predict production peaks and valleys for a given time based on sunlight and on the household' past solar panel production:
 - for a given hour during the day (e.g. from 3pm to 4pm)
 - on a given day of the week (e.g. Saturday)
 - in a given month of the year (e.g. July)
 
 **Data sources:** 
+[Solarenergie Prognose from NETSTRANSPERNENZ](https://www.netztransparenz.de/Weitere-Veroeffentlichungen/Solarenergie-Prognose)
 
-- Sunshine weather forecast for the next hours / days
-- daylight times for a given calendar day
-- Past production of solar electricity for this household, given past sunshine and daylight times
+Optional data to refine the prediction at household level: Past production of solar electricity for this household
 
-Mockup of what this could look like (using past weather data as a proxy): 
+
+## Functionality 
+
+The functionality purpose for the consumers is:
+- to adapt their behaviors to have cleaner energy usage
+- to see their progression in energy consumption over time
+
+To adapt their behaviors, accessible data of factors impacting energy production will be shown to the user. Such include prevision of solar intensity for the upcoming week, coupled with other data such as past average consumption habits of the Club. Data can also integrate predictable special events susceptible to induce consequent perturbation in the general consumption (e.g. World Cup Football).
+
+The integrated data is presented to the user in the form of a table showing predicted energy conditions for the upcoming week, for every hour. The table will highlight the day and hours when clean energy will be the more available among the week. This will enable users to plan their energy most consuming tasks (usually cooking and housekeeping) according to external energy availabiity conditions.
 ![Mockup of solar panel production](data/best%20moment%20prediction_ink.png?raw=true)
 
+The user will be able to click on the case of the table to access to more details explaining the reasons why he/she should stay to his current task planification or move it to anothe time:
+- sunlight availability
+- saturation of Club
+- etc.
+
+To see their progression over time, consumers will have access to the profile curve of their past days, weeks and months consumptions. They will also be able to see the difference between their actual daily consumption of a specific weekday with average of past consumption for the same weekday.
 
 
-## Functionality 
-
-### Forecast
-As an end consumer, I want to know when is the best time to use electricity in the coming hours and days, so that I can plan energy-intensive tasks accordingly (e.g. doing the laundry, charging my electric car,...)
-
-**Implementation:** The Lightbulb Forecast Screen shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. 
-
-
-
-
-## Functionality 
 ### Home Screen
 The Home Screen is split in half. In the upper part, an icon is shown as a quick and easy-to-understand indicator for the user - a call to action. The icon shows one of three states:
 
@@ -109,6 +110,11 @@ On the second half of the Home Screen are other options the user can choose. The
 - My History
 - Compare Appliances
 - What can I do
+
+### Forecast Screen
+As an end consumer, I want to know when is the best time to use electricity in the coming hours and days, so that I can plan energy-intensive tasks accordingly (e.g. doing the laundry, charging my electric car,...)
+
+**Implementation:** The Lightbulb Forecast Screen shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. 
 
 
 
@@ -144,7 +150,7 @@ The Compare Appliances Screen is meant to support the user in acquisition decisi
 
 After putting the values in, the estimated electricity costs of that appliance is being shown. The user can add multiple appliances in order to compare them.
 
-Additionally, a list of typical values is being shown, as for example the number of hours a tv es being operated in general (as a rule of thumb).
+Additionally, a list of typical values is being shown, as for example the number of hours a tv is being operated in general (as a rule of thumb).
 
 ### What can I do Screen (not yet implemented, coming soon)
 In the first versions of the What can I do Screen, a list of typical electrical appliances will be shown. The list should help the user to decide which devices can be turned on or turned off, depending on the current situation. In later versions, these options can be improved by
