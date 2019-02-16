@@ -16,7 +16,10 @@ define
                     <div class="col-4">
                     <ul class="forecast">
                         {{#days}}
+                        <li>
                         <img id="light-bulb-icon" class="center_main" src={{icon}} alt="light-bulb  status" width="100">
+                        {{time}}
+                        </li>
                         {{/days}}
                     </ul>
                     </div>
@@ -25,40 +28,40 @@ define
                 </div>
             `;
             var list = { days: [
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on.svg" },
-                { "icon": "images/light-bulb-off.svg" },
-                { "icon": "images/light-bulb-on.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
-                { "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-off.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
+                { "time": "10:00", "icon": "images/light-bulb-on-half.svg" },
                 ] }
             var html = mustache.render (template, list);
             document.getElementById ("main").innerHTML = html;
