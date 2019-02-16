@@ -29,10 +29,25 @@ Minimize the necessity to buy expensive, "dirty" electricity (produced from oil 
 For this project, we used different sets of available data (open data).
 - [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
 - [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)
-
-[ ] todo: add all the data being used / calculated
+- [Solarenergie Prognose from NETSTRANSPERNENZ] (https://www.netztransparenz.de/Weitere-Veroeffentlichungen/Solarenergie-Prognose)
 
 ## Functionality 
+The functionality purpose for the consumers is:
+- to adapt their behaviors to have cleaner energy usage
+- to see their progression in energy consumption over time
+
+To adapt their behaviors, accessible data of factors impacting energy production will be shown to the user. Such include prevision of solar intensity for the upcoming week, coupled with other data such as past average consumption habits of the Club. Data can also integrate predictable special events susceptible to induce consequent perturbation in the general consumption (e.g. World Cup Football).
+
+The integrated data is presented to the user in the form of a table showing predicted energy conditions for the upcoming week, for every hour. The table will highlight the day and hours when clean energy will be the more available among the week. This will enable users to plan their energy most consuming tasks (usually cooking and housekeeping) according to external energy availabiity conditions.
+
+The user will be able to click on the case of the table to access to more details explaining the reasons why he/she should stay to his current task planification or move it to anothe time:
+- sunlight availability
+- saturation of Club
+- etc.
+
+To see their progression over time, consumers will have access to the profile curve of their past days, weeks and month consumptions. They will also be able to see the difference between their actual daily of specific weekday consumption with average of past consumption for the same weekday.
+
+
 ### Home Screen
 The Home Screen is split in half. In the upper part, an icon is shown as a quick and easy-to-understand indicator for the user - a call to action. The icon shows one of three states:
 
@@ -72,7 +87,7 @@ The Compare Appliances Screen is meant to support the user in acquisition decisi
 
 After putting the values in, the estimated electricity costs of that appliance is being shown. The user can add multiple appliances in order to compare them.
 
-Additionally, a list of typical values is being shown, as for example the number of hours a tv es being operated in general (as a rule of thumb).
+Additionally, a list of typical values is being shown, as for example the number of hours a tv is being operated in general (as a rule of thumb).
 
 ### What can I do Screen (not yet implemented, coming soon)
 In the first versions of the What can I do Screen, a list of typical electrical appliances will be shown. The list should help the user to decide which devices can be turned on or turned off, depending on the current situation. In later versions, these options can be improved by
