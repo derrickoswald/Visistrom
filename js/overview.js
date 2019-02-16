@@ -33,12 +33,12 @@ define
                 </div>
                 <div class="row">
                     <div class="col my-2">
-                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >Options</button>
+                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >What can I do</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col my-2">
-                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >Acquisition</button>
+                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >Compare Appliances</button>
                     </div>
                 </div>
             `;
