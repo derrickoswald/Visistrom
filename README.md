@@ -29,20 +29,36 @@ On the second half of the Home Screen are other options the user can choose. The
 - History
 - Options
 
-## Lightbulb Forecast
+## Lightbulb Forecast Screen
 The Lightbulb Forecast shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. A click on one of the lightbulbs gives the user the option to set a reminder (e.g. for vacuum cleaning, not yet implemented).
 
-## Forecast Screen
-coming soon
+## My Realm Screen (not yet implemented, coming soon)
+The My Realm Screen shows the energy consumption of the user's home or flat using a simple graph. The data is limited to the last 24 hours. If possible, different energy consumers will be shown separately as well as aggregated. As an example, the bas load (typical household appliances), the usage of the battery, the pv production as well as the consumption of the heatpump could be shown. The user can switch between the aggregated view, showing only "what flows into / out of the house" or the detailed view.
 
-## Club Screen
-coming soon
+## My Club Screen (not yet implemented, coming soon)
+*Club is the term for a group of customers connected to the same network node*
+Similar to the My Realm Screen, the My Club Screen shows a simplified overview of the electricity network area the user is connected to (automatically determined, login required). On the one hand, the graph shows the performance of the network within the last 24 hours. On the other hand, the graph shows the number of participants or rather their aggregated energy consumption and production in order to highlight the ratio and improve that.
 
-## History Screen
-coming soon
+## My History Screen (not yet implemented, coming soon)
+The My History Screen provides a filter mechanism to specify a period of interest. As an example, the user can select from last day, last week, specific week, last month, specific month, last season, specific season, last year and custom from/to dates. The specified period is then being displayed as a graph whereas the scaling is determined by the period itself. Additionally, the user can add a second period of the same kind in order to start comparing time series. As an example, the user could compare the last week with the same week a year ago.
 
-## Options Screen
+## Acquisition Screen (not yet implemented, coming soon)
+The Acquisition Screen is meant to support the user in acquisition decisions. It focuses on the operational costs based on electricity consumption of the specified appliances. In the first version, the user can input 5 values into the form:
+- electricity consumption when turned on in Watt
+- hours of operation per year in hours
+- electricity consumption when in stand by in Watt
+- hours in stand by per year in hours
+- electricity cost (default value provided by operator)
+
+After putting the values in, the estimated electricity costs of that appliance is being shown. The user can add multiple appliances in order to compare them.
+
+Additionally, a list of typical values is being shown, as for example the number of hours a tv es being operated in general (as a rule of thumb).
+
+## Options Screen (not yet implemented, coming soon)
 In the first versions of the Options Screen, a list of typical electrical appliances will be shown. The list should help the user to decide which devices can be turned on or turned off, depending on the current situation. In later versions, these options can be improved by
 - showing only appliances the user actually has
 - highlighting appliances that can actually be turned on or turned off (e.g. not showing a boiler that is already beeing running)
 - sorting the list in a smart way (taking the power consumption, ramp up time, saving potential, etc. into account)
+
+## Supportive Messages (not yet implemented, coming soon)
+The system motivates the user by displaying a supportive message every now and then. A message can be displayed when the user simply opens the app/website (e.g. 'It's nice to see you here', 'Welcome back!'). More importantly, a message should be shown if the user has seen a call to action (e.g. lightbulb is turned on) and the system notices that the energy consumption of the user actually dropped (e.g. 'Thank you for your support, you helped the Club!').
