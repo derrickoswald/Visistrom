@@ -18,22 +18,27 @@ define
                 </div>
                 <div class="row my-2">
                     <div class="col">
-                        <button id="forecast" class="btn btn-primary btn-lg btn-block"  type="button" >Forecast</button>
+                        <button id="forecast" class="btn btn-primary btn-lg btn-block"  type="button" >My Realm</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col my-2">
-                        <button id="club"     class="btn btn-secondary btn-lg btn-block"type="button" >Club</button>
+                        <button id="club"     class="btn btn-secondary btn-lg btn-block"type="button" >My Club</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col my-2">
-                        <button id="history"  class="btn btn-success btn-lg btn-block"  type="button" >History</button>
+                        <button id="history"  class="btn btn-success btn-lg btn-block"  type="button" >My History</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col my-2">
-                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >Options</button>
+                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >What can I do</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col my-2">
+                        <button id="options"  class="btn btn-info btn-lg btn-block"     type="button" >Compare Appliances</button>
                     </div>
                 </div>
             `;
