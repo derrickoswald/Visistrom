@@ -13,6 +13,12 @@ Minimize the necessity to buy expensive, "dirty" electricity (produced from oil 
 - reduce peaks (peak shaving)
 - reduce unplanned differences in consumption and production
 
+# Data analytics
+For this project, we used different sets of available data (open data).
+- [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
+- [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)
+[ ] todo: add all the data being used / calculated
+
 # Functionality
 ## Home Screen
 The Home Screen is split in half. In the upper part, an icon is shown as a quick and easy-to-understand indicator for the user - a call to action. The icon shows one of three states:
