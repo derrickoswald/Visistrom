@@ -26,11 +26,62 @@ Minimize the necessity to buy expensive, "dirty" electricity (produced from oil 
 - reduce unplanned differences in consumption and production
 
 ## Data Analytics
-For this project, we used different sets of available data (open data).
-- [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
-- [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)
+To make a recommendation of when to use electricity or not, we need to try to avoid peaks in consumption, at the individual household level, and at the area level. 
 
-[ ] todo: add all the data being used / calculated
+*TO EDIT: What did we use this data for? [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)*
+
+### 1. Consumption for a given household
+Predict consumption peaks and valleys for a given time based on the household's past consumption:
+- for a given hour during the day (e.g. from 3pm to 4pm)
+- on a given day of the week (e.g. Saturday)
+- in a given month of the year (e.g. July)
+
+**Data source:** 
+
+[Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
+
+*These are Smartmeter measurments in 15-minute intervalls by blocks of flats. It's not by individual households, but this is a good enough apporximation for now.*
+
+
+### 2. Consumption for a given area (TO DO)
+Predict consumption peaks and valleys for a given time based on the area's past consumption:
+- for a given hour during the day (e.g. from 3pm to 4pm)
+- on a given day of the week (e.g. Saturday)
+- in a given month of the year (e.g. July)
+
+**Data source:**
+
+[Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
+
+*Not calculated yet. TO DO: aggregate all the Smartmeter measurements for the whole area*
+
+
+### 3. Solar panel production for a given household (TO DO)
+Predict production peaks and valleys for a given time based on the household' past solar panel production:
+- for a given hour during the day (e.g. from 3pm to 4pm)
+- on a given day of the week (e.g. Saturday)
+- in a given month of the year (e.g. July)
+
+**Data sources:** 
+
+- Sunshine weather forecast for the next hours / days
+- daylight times for a given calendar day
+- Past production of solar electricity for this household, given past sunshine and daylight times
+
+Mockup of what this could look like (using past weather data as a proxy): 
+![Mockup of solar panel production](data/best%20moment%20prediction_ink.png?raw=true)
+
+
+
+## Functionality 
+
+### Forecast
+As an end consumer, I want to know when is the best time to use electricity in the coming hours and days, so that I can plan energy-intensive tasks accordingly (e.g. doing the laundry, charging my electric car,...)
+
+**Implementation:** The Lightbulb Forecast Screen shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. 
+
+
+
 
 ## Functionality 
 ### Home Screen
@@ -49,8 +100,19 @@ On the second half of the Home Screen are other options the user can choose. The
 - Compare Appliances
 - What can I do
 
-### Lightbulb Forecast Screen
-The Lightbulb Forecast shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. A click on one of the lightbulbs gives the user the option to set a reminder (e.g. for vacuum cleaning, not yet implemented).
+
+
+## Backlog (not implemented yet)
+
+### Notification / Reminder: 
+**User Story:** As an end consumer, I want to get notified of the best time to use electricity, so I don't have to check the app actively. 
+
+**Implementation:** On the "Forecast" screen, a click on one of the lightbulbs (= time period) gives the user the option to set a reminder (e.g. to vacuum clean).
+
+
+### Drill-Down
+As an end consumer, I want to see the forecasted consumption and production for a particular time period (e.g. today 3-4pm), so that I understand why I get a recommendation to use or save electricity at that time. 
+
 
 ### My Realm Screen (not yet implemented, coming soon)
 The My Realm Screen shows the energy consumption of the user's home or flat using a simple graph. The data is limited to the last 24 hours. If possible, different energy consumers will be shown separately as well as aggregated. As an example, the bas load (typical household appliances), the usage of the battery, the pv production as well as the consumption of the heatpump could be shown. The user can switch between the aggregated view, showing only "what flows into / out of the house" or the detailed view.
