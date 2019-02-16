@@ -43,21 +43,25 @@ define
                 </div>
             `;
 
+            var now = dat.pseudo_now ();
             var days = [];
             var count = 0;
             for (var property in data)
                 if (reference.hasOwnProperty (property))
                 {
                     var date = new Date (property);
-                    var tomorrow = new Date (date.valueOf ());
-                    tomorrow.setDate (tomorrow.getDate () + 1);
-                    if (0 == date.getMinutes ())
+                    if (date > now)
                     {
-                        var time = "" + pad (2, "" + date.getHours (), "0") + ":" + pad (2, "" + date.getMinutes (), "0");
-                        days.push ({ "time": time, "icon": dat.icon_for (date), "tomorrow_icon": dat.icon_for (tomorrow) });
-                        count++;
-                        if (count > 24)
-                            break;
+                        var tomorrow = new Date (date.valueOf ());
+                        tomorrow.setDate (tomorrow.getDate () + 1);
+                        if (0 == date.getMinutes ())
+                        {
+                            var time = "" + pad (2, "" + date.getHours (), "0") + ":" + pad (2, "" + date.getMinutes (), "0");
+                            days.push ({ "time": time, "icon": dat.icon_for (date), "tomorrow_icon": dat.icon_for (tomorrow) });
+                            count++;
+                            if (count > 24)
+                                break;
+                        }
                     }
                 }
 
