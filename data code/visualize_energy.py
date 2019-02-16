@@ -34,12 +34,6 @@ timeratio = 15 # the ratio to convert from measured timepoints to 1440x1min timp
 Ntmp = 96 # Number of measured timepoints for one day
 Time = createTimeList(Ntmp,timeratio) # create a list of string code time points, observed time points reso9lution => cf: General_functions, createTimeList
 
-Dates = [] # empty list
-for day in Datum[1:]: # loop for each line/row of the file
-    Dates.append(str(day).split(' ')[0]) # saving the date
-Dates = list(zip(*[iter(Dates)]*Ntmp)) # changing the list into a list of sub-lists => each sublist corresponds to one day timepoints (96 x 15 minutes)
-Dates = [sorted(list(set(dates)))[0] for dates in Dates] # we want each date only onc
-
 
 lat, lng =  47.0982, 7.4405 # St-Imier GPS coordinates (Flexi project measurments reference location) => latitudes, longitudes
 utc_offset = 1 # Universal Time Coordinated => CDT => apparently time sumer/winter time change was not taken into account during the measurment so no need to bother with the hour switching        
@@ -52,6 +46,12 @@ matrixdata = data.as_matrix() # convert data into a matrix
 Datum = array(matrixdata[0:len(matrixdata),0:1])[list(range(len(matrixdata))),[0]*len(matrixdata)] # devCode is the list of devices' names =>  to correct the really annoying format of the original array loaded by the matlab file... => we move from array([array([0]),array([1])...]) to array([0,1]), which is way more suitable for the next parts !       
 Zeit = array(matrixdata[0:len(matrixdata),1:2])[list(range(len(matrixdata))),[0]*len(matrixdata)] # devCode is the list of devices' names =>  to correct the really annoying format of the original array loaded by the matlab file... => we move from array([array([0]),array([1])...]) to array([0,1]), which is way more suitable for the next parts !       
 Wirkleistung = array(matrixdata[0:len(matrixdata),2:3])[list(range(len(matrixdata))),[0]*len(matrixdata)] # devCode is the list of devices' names =>  to correct the really annoying format of the original array loaded by the matlab file... => we move from array([array([0]),array([1])...]) to array([0,1]), which is way more suitable for the next parts !       
+
+Dates = [] # empty list
+for day in Datum[1:]: # loop for each line/row of the file
+    Dates.append(str(day).split(' ')[0]) # saving the date
+Dates = list(zip(*[iter(Dates)]*Ntmp)) # changing the list into a list of sub-lists => each sublist corresponds to one day timepoints (96 x 15 minutes)
+Dates = [sorted(list(set(dates)))[0] for dates in Dates] # we want each date only onc
 
 loadcurve = array(list(zip(*[iter(list(Wirkleistung[1:]))]*Ntmp))) # total loadcurve of the selected Household => list subdivided into sub-lists => each sublist corresponds to the loadcurve for one day (96 x 15 minutes timepoints)
 loadcurve = loadcurve*4*1000 # loadcurve converted from kiloWatt hour per 15min [kWh] in Watt [W]
