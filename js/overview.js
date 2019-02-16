@@ -7,6 +7,11 @@ define
     ["read_data", "forecast"],
     function (read_data, forecast)
     {
+        // fake user data
+        var TheData;
+        // fake electric distribution data
+        var TheReference;
+
         function render ()
         {
 
@@ -65,20 +70,56 @@ define
                 document.getElementById ("light-bulb-icon").src = icon;
             }
 
+            function initialize ()
+            {
+                function convert (objects)
+                {
+                    var new_objects = {};
+                    for (var property in objects)
+                        if (objects.hasOwnProperty (property))
+                            new_objects[new Date (property)] = objects[property];
+                    return (new_objects);
+                }
+                read_data.load ("data/4weeks_MD_T1_MHF1.csv").then (function (objects) { TheData = convert (objects); } );
+
+                /**
+                 * Pad a string on the left to width with padding.
+                 */
+                function pad (width, string, padding)
+                {
+                    return ((width <= string.length) ? string : pad (width, padding + string, padding));
+                }
+
+                function clean (objects)
+                {
+                    var new_objects = {};
+                    for (var property in objects)
+                        if (objects.hasOwnProperty (property))
+                        {
+                            if ("" != property)
+                            {
+                                var s = property.split (" ");
+                                var t = s[1].split (":");
+                                var u = s[0].split ("/");
+                                var v = u[2] + "-" + pad (2, u[0], "0") + "-" + pad (2, u[1], "0");
+                                var w = v + " " + pad (2, t[0], "0") + ":" + t[1] + ":00";
+                                var date = new Date (w);
+                                new_objects[date] = objects[property];
+                            }
+                        }
+                    return (new_objects);
+                }
+
+                read_data.load ("data/Canton_Argau_Consumption_2018.csv", ";").then (function (objects) { TheReference = clean (objects); } );
+
+                // ToDo: normalize the data
+
+            }
+
             function doit ()
             {
                 forecast.render ();
-//                function show (objects)
-//                {
-//                    var new_objects = {};
-//                    for (var property in objects)
-//                        if (objects.hasOwnProperty (property))
-//                            new_objects[new Date (property)] = objects[property];
-//                    alert (JSON.stringify (new_objects, null, 4).substring (0, 2000));
-//                }
-//                read_data.load ("data/4weeks_MD_T1_MHF1.csv").then (show);
             };
-
 
             // initialize widgets
             document.getElementById ("main").innerHTML = template;
@@ -87,6 +128,9 @@ define
             document.getElementById ("club").onclick     = function () { set_status ("save"); };
             document.getElementById ("history").onclick  = function () { set_status ("ok"); };
             document.getElementById ("options").onclick  = function () { set_status ("bogus"); };
+
+            // initialize the data
+            initialize ();
 
         };
 
