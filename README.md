@@ -35,29 +35,39 @@ Predict consumption peaks and valleys for a given time based on the household's 
 - for a given hour during the day (e.g. from 3pm to 4pm)
 - on a given day of the week (e.g. Saturday)
 - in a given month of the year (e.g. July)
+--> not using that at the moment yet
+
+At the moment using the non-processed data as a proxy prediction
 
 **Data source:** 
 
 [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
+01. Aug 2017 - 31. Aug 2018
 
-*These are Smartmeter measurments in 15-minute intervalls by blocks of flats. It's not by individual households, but this is a good enough apporximation for now.*
+*These are Smartmeter measurments in 15-minute intervalls by blocks of flats (usually about 3-8). It's not by individual households, but this is a good enough apporximation for now.*
+
+### 2. Consumption for Kanton of Aargau, SwissGrid
+As a proxy for prediction data from the utility provider
+[Energieübersicht 2018, Swissgrid (Kanton Aargau)](https://www.swissgrid.ch/de/home/operation/grid-data/generation.html#endverbrauchte-energie)
+Scaled down to match 
+01.01.2018-31.12.2018
 
 
-### 2. Consumption for a given area (TO DO)
+### 3. Consumption for a given area (TO DO)
 Predict consumption peaks and valleys for a given time based on the area's past consumption:
 - for a given hour during the day (e.g. from 3pm to 4pm)
 - on a given day of the week (e.g. Saturday)
 - in a given month of the year (e.g. July)
 
 **Data source:**
-
-[Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
-
-*Not calculated yet. TO DO: aggregate all the Smartmeter measurements for the whole area*
+- [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3) (summed up)
+- Or: load profiles from Trafo stations (not openly available)
 
 
-### 3. Solar panel production for a given household (TO DO)
-Predict production peaks and valleys for a given time based on the household' past solar panel production:
+
+
+### 4. Solar panel production for a given household (TO DO)
+Predict production peaks and valleys for a given time based on sunlight and on the household' past solar panel production:
 - for a given hour during the day (e.g. from 3pm to 4pm)
 - on a given day of the week (e.g. Saturday)
 - in a given month of the year (e.g. July)
