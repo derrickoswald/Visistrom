@@ -3,3 +3,8 @@ IMG.center_main {
     margin-left: auto;
     margin-right: auto
 }
+
+UL.forecast {
+   border: medium solid black;
+   list-style-type: none;
+}
