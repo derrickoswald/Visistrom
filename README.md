@@ -29,7 +29,7 @@ Minimize the necessity to buy expensive, "dirty" electricity (produced from oil 
 For this project, we used different sets of available data (open data).
 - [Aggregated load profiles of apartment blocks](https://github.com/schoolofdata-ch/energy-data/issues/3)
 - [Project VEiN](https://github.com/schoolofdata-ch/energy-data/issues/4)
-- [Solarenergie Prognose from NETSTRANSPERNENZ] (https://www.netztransparenz.de/Weitere-Veroeffentlichungen/Solarenergie-Prognose)
+- [Solarenergie Prognose from NETSTRANSPERNENZ](https://www.netztransparenz.de/Weitere-Veroeffentlichungen/Solarenergie-Prognose)
 
 ## Functionality 
 The functionality purpose for the consumers is:
