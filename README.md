@@ -2,7 +2,7 @@ VisiStrom
 ======
 
 Visistrom helps individuals to plan using electricity at a good time in order to use sustainable energy as much as possible. 
-In turn, this helps utility companies to reduce energy purchases from expensive sources like coal and oil plants. 
+In turn, this behaviour helps utility companies to reduce energy purchases from expensive sources like coal and oil plants. 
 
 ## Energy Hack Days 
 
@@ -36,7 +36,7 @@ Predict consumption peaks and valleys for a given time based on the household's 
 - in a given month of the year (e.g. July)
 --> not using that at the moment yet
 
-At the moment using the non-processed data as a proxy prediction
+At the moment, the front-end app prototype uses the non-processed usage data from last year as a proxy prediction. 
 
 **Data source:** 
 
@@ -94,6 +94,8 @@ The user will be able to click on the case of the table to access to more detail
 
 To see their progression over time, consumers will have access to the profile curve of their past days, weeks and months consumptions. They will also be able to see the difference between their actual daily consumption of a specific weekday with average of past consumption for the same weekday.
 
+![Demo of a household's consumption for 1 day](/data/demo.png)
+
 
 ### Home Screen
 The Home Screen is split in half. In the upper part, an icon is shown as a quick and easy-to-understand indicator for the user - a call to action. The icon shows one of three states:
@@ -104,18 +106,12 @@ The Home Screen is split in half. In the upper part, an icon is shown as a quick
 
 A click on the icon will show the user a forecast of the lightbulb so he or she can plan their energy consumption ahead.
 
-On the second half of the Home Screen are other options the user can choose. These are
-- My Realm
-- My Club
-- My History
-- Compare Appliances
-- What can I do
-
 ### Forecast Screen
 As an end consumer, I want to know when is the best time to use electricity in the coming hours and days, so that I can plan energy-intensive tasks accordingly (e.g. doing the laundry, charging my electric car,...)
 
 **Implementation:** The Lightbulb Forecast Screen shows a series of lightbulbs from top to bottom. Each lightbulb belongs to a specific time period (e.g. 1 hour, 1 pm - 2pm). Similar to the lightbulb on the Home Screen, the lightbulbs indicate whether the specific period is more likely to be a period to spend or save energy. 
 
+![Algorithm for the usage recommendation](images/2019_02_16%2014_36%20Office%20Lens.jpg)
 
 
 ## Backlog (not implemented yet)
