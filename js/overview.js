@@ -4,8 +4,8 @@
 "use strict";
 define
 (
-    ["data", "forecast"],
-    function (data, forecast)
+    ["data", "forecast", "mustache"],
+    function (data, forecast, mustache)
     {
         function render ()
         {
@@ -13,7 +13,7 @@ define
             var template = `
                 <div class="row">
                     <div id="status" class="col my-2">
-                        <img id="light-bulb-icon" class="center_main" src="images/light-bulb.svg" alt="light-bulb  status">
+                        <img id="light-bulb-icon" class="center_main" src={{icon}} alt="light-bulb  status">
                     </div>
                 </div>
                 <div class="row my-2">
@@ -70,16 +70,23 @@ define
                 forecast.render ();
             };
 
-            // initialize widgets
-            document.getElementById ("main").innerHTML = template;
-            document.getElementById ("light-bulb-icon").onclick = doit;
-            document.getElementById ("forecast").onclick = function () { set_status ("use"); };
-            document.getElementById ("club").onclick     = function () { set_status ("save"); };
-            document.getElementById ("history").onclick  = function () { set_status ("ok"); };
-            document.getElementById ("options").onclick  = function () { set_status ("bogus"); };
-
             // initialize the data
-            data.initialize ();
+            var ss = data.initialize ();
+            ss.then (
+                function ()
+                {
+                    // initialize widgets
+                    var now = data.pseudo_now ();
+                    var icon = data.icon_for (now);
+                    var html = mustache.render (template, { icon: icon });
+                    document.getElementById ("main").innerHTML = html;
+                    document.getElementById ("light-bulb-icon").onclick = doit;
+                    document.getElementById ("forecast").onclick = function () { set_status ("use"); };
+                    document.getElementById ("club").onclick     = function () { set_status ("save"); };
+                    document.getElementById ("history").onclick  = function () { set_status ("ok"); };
+                    document.getElementById ("options").onclick  = function () { set_status ("bogus"); };
+                }
+            );
 
         };
 

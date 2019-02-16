@@ -12,11 +12,25 @@ define
         // fake electric distribution data
         var TheReference;
 
+        function pseudo_now ()
+        {
+            var date = new Date ();
+            date.setFullYear (date.getFullYear () - 1);
+            date.setMonth (0); // to be removed after demo
+            var minutes = date.getMinutes () - date.getMinutes () % 15;
+            date.setMinutes (minutes);
+            date.setSeconds (0);
+            date.setMilliseconds (0);
+            return (date);
+        }
+
         function recommendation_for (time)
         {
             var ret;
 
-            var diff = TheReference[time].power - TheData[time].power;
+            var ref = TheReference[time].power;
+            var data = TheData[time].power;
+            var diff = ref - data;
             if (diff > 0.2)
                 ret = "use";
             else if (diff < -0.2)
@@ -139,24 +153,28 @@ define
                     }
                 return (new_objects);
             }
-            read_data.load ("data/4weeks_MD_T1_MHF1.csv").then (
-                function (objects)
-                {
-                    TheData = convert (objects);
-                    read_data.load ("data/Canton_Argau_Consumption_2018.csv", ";").then (
-                        function (objects)
-                        {
-                            TheReference = clean (objects);
-                            normalize ();
-                            console.log ("data loaded");
-                        }
-                    );
-                }
-            );
+
+            function handle_reference (objects)
+            {
+                TheReference = clean (objects);
+                normalize ();
+                console.log ("data loaded");
+            }
+
+            function handle_data (objects)
+            {
+                TheData = convert (objects);
+                return (
+                    read_data.load ("data/Canton_Argau_Consumption_2018.csv", ";").then (handle_reference)
+                );
+            }
+
+            return (read_data.load ("data/4weeks_MD_T1_MHF1.csv").then (handle_data));
         }
 
         return (
             {
+                pseudo_now: pseudo_now,
                 initialize: initialize,
                 recommendation_for: recommendation_for,
                 icon_for: icon_for,
